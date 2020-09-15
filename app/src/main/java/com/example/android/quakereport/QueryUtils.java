@@ -63,7 +63,7 @@ public final class QueryUtils {
                 SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
                 String displayTime = timeFormat.format(date);
 
-                earthquakes.add(new Earthquake(properties.getString("mag"), properties.getString("place"), displayDate, displayTime));
+                earthquakes.add(new Earthquake(properties.getDouble("mag"), properties.getString("place"), displayDate, displayTime));
                 Log.i("info", "Earthquake added to position" + i);
             }
             // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
