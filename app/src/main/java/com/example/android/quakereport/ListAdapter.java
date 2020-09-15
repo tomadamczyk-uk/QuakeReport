@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,13 @@ public class ListAdapter extends ArrayAdapter {
         super(context, 0, list);
         this.context = context;
         this.earthquakes = list;
+    }
+
+    private String decFormat(double d){
+        DecimalFormat dF = new DecimalFormat("0.0");
+        String output = dF.format(d);
+
+        return output;
     }
 
     @NonNull
@@ -40,7 +48,7 @@ public class ListAdapter extends ArrayAdapter {
         locationOffset.setText(earthquakeData.getLocationOffset());
 
         TextView quakeMagnitude = (TextView) listItem.findViewById(R.id.magTextView);
-        quakeMagnitude.setText(earthquakeData.getMagnitude());
+        quakeMagnitude.setText(decFormat(earthquakeData.getMagnitude()));
 
         TextView quakeDate = (TextView) listItem.findViewById(R.id.dateTextView);
         quakeDate.setText(earthquakeData.getDate());

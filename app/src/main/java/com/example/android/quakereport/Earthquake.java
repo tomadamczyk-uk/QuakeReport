@@ -4,28 +4,21 @@ import java.text.DecimalFormat;
 
 public class Earthquake {
 
-    private String magnitude;
+    private double magnitude;
     private String location;
     private String locationOffset;
     private String date;
     private String time;
 
     public Earthquake(double magnitude, String location, String date, String time){
-        this.magnitude = decFormat(magnitude);
+        this.magnitude = magnitude;
         this.location = setLocation(location);
         this.locationOffset = setLocationOffset(location);
         this.date = date;
         this.time = time;
     }
 
-    private String decFormat(double d){
-        DecimalFormat dF = new DecimalFormat("0.0");
-        String output = dF.format(d);
-
-        return output;
-    }
-
-    public String getMagnitude() {
+    public double getMagnitude() {
         return magnitude;
     }
 
